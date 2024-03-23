@@ -34,11 +34,7 @@ helper.checkLogin = (req, _res, next) => {
   }
 }
 
-helper.verifyToken = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+helper.verifyToken = async (req, _res, next) => {
   try {
     if (req.isAuthenticated()) return next()
 

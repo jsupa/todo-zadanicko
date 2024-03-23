@@ -15,7 +15,7 @@ const userSchema: Schema = new Schema(
   {
     email: { type: String, required: true, unique: true },
     password: { type: String, select: false },
-    token: { type: String },
+    token: { type: String, select: false },
   },
   { timestamps: true },
 )

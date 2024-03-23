@@ -1,25 +1,15 @@
 import express from 'express'
-import controller from '../controllers/login.controller.js'
+import c from '../controllers/login.controller.js'
 
-import helper from './../lib/helper.js'
-import validate from '../validators/login.validator.js'
+import h from './../lib/helper.js'
+import v from '../validators/login.validator.js'
 
 export const loginRouter = express.Router()
 
-loginRouter.post('/', helper.checkLogin, validate.login, controller.login)
-loginRouter.post(
-  '/register',
-  helper.checkLogin,
-  validate.register,
-  controller.register,
-)
-loginRouter.get('/me', helper.verifyToken, helper.checkAuth, controller.me)
-loginRouter.get(
-  '/logout',
-  helper.verifyToken,
-  helper.checkAuth,
-  controller.logout,
-)
+loginRouter.post('/', h.checkLogin, v.login, c.login)
+loginRouter.post('/register', h.checkLogin, v.register, c.register)
+loginRouter.get('/me', h.verifyToken, h.checkAuth, c.me)
+loginRouter.get('/logout', h.verifyToken, h.checkAuth, c.logout)
 
 /**
  * @openapi
@@ -41,13 +31,6 @@ loginRouter.get(
  *         type: string
  *        password:
  *          type: string
- *   parameters:
- *    - name: Accept-Language
- *      in: header
- *      description: Language
- *      required: false
- *      schema:
- *       type: string
  *   responses:
  *     422:
  *       description: Bad Request, Validation Error
@@ -72,13 +55,6 @@ loginRouter.get(
  *         type: string
  *        password:
  *          type: string
- *   parameters:
- *    - name: Accept-Language
- *      in: header
- *      description: Language
- *      required: false
- *      schema:
- *       type: string
  *   responses:
  *     422:
  *       description: Bad Request, Validation Error

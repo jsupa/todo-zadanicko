@@ -112,16 +112,12 @@ const errorHandler = (
   res: Response,
   _next: NextFunction,
 ) => {
-  consola.error(err)
-
   res.status(err.status || 500)
-
-  console.log('status', res.statusCode)
 
   res.json({
     message: err.message,
     messages: err.messages,
-    stack: process.env.NODE_ENV === 'production' ? '🥞' : err.stack,
+    // stack: process.env.NODE_ENV === 'production' ? '🥞' : err.stack,
   })
 }
 
