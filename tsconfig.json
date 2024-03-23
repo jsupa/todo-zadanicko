@@ -1,0 +1,14 @@
+{
+  "extends": "@tsconfig/node21/tsconfig.json",
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "verbatimModuleSyntax": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "outDir": "dist",
+    "noUncheckedIndexedAccess": true,
+    "moduleResolution": "Bundler"
+  }
+}
